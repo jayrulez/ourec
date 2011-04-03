@@ -12,7 +12,7 @@ using Fakebook.Lib;
 
 namespace Fakebook.Controllers.Account
 {
-    public class SettingsController : Controller
+    public class SettingsController : AuthenticatedController
     {
         //
         // GET: /Settings/
