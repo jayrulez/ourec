@@ -14,6 +14,11 @@
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="SidebarLeftContent" runat="server">
+<ul>
+    <li><%: Html.ActionLink("News Feed", "Index", "Home")%></li>
+    <li><%: Html.ActionLink("Friends", "Index", "Friend")%></li>
+    <li><%: Html.ActionLink("Photos", "Index", "Photo")%></li>
+</ul>
 </asp:Content>
 
 <asp:Content ID="Content4" ContentPlaceHolderID="SidebarRightContent" runat="server">

@@ -1,0 +1,22 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Views/Shared/Site.Master" AutoEventWireup="true" CodeFile="Account.Master.cs" Inherits="Fakebook.Views.Shared.Account" %>
+<%@ MasterType VirtualPath="~/Views/Shared/Site.Master" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
+<asp:ContentPlaceHolder ID="TitleContent" runat="server" />
+</asp:Content>
+
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+<asp:ContentPlaceHolder ID="MainContent" runat="server" />
+</asp:Content>
+
+<asp:Content ID="Content3" ContentPlaceHolderID="SidebarLeftContent" runat="server">
+<asp:ContentPlaceHolder ID="SidebarLeftContent" runat="server" />
+</asp:Content>
+
+<asp:Content ID="Content4" ContentPlaceHolderID="SidebarRightContent" runat="server">
+<asp:ContentPlaceHolder ID="SidebarRightContent" runat="server">
+<ul>
+	<li><%: Html.ActionLink("&nbsp;", "Index", "Home")%></li>
+	<li><%: Html.ActionLink("&nbsp;", "Index", "Home")%></li>
+</ul>
+</asp:ContentPlaceHolder>
+</asp:Content>
