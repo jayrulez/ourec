@@ -93,14 +93,13 @@ CREATE TABLE aspnet_Comment
 (
 	Id INT PRIMARY KEY NOT NULL, 
 	UserId UNIQUEIDENTIFIER NOT NULL,
-	ParentId INT DEFAULT NULL, 
 	ObjectId INT NOT NULL, 
 	Content TEXT, 
 	CreatedAt DATETIME NOT NULL, 
 	UpdatedAt DATETIME DEFAULT NULL
 );
 
-CREATE TABLE aspnet_News
+CREATE TABLE aspnet_Article
 (
 	Id INT IDENTITY(1,1) PRIMARY KEY NOT NULL, 
 	Title VARCHAR(255) NOT NULL, 
@@ -159,9 +158,6 @@ ADD CONSTRAINT FK_Post_Id FOREIGN KEY (Id) REFERENCES aspnet_Object(Id);
 
 ALTER TABLE aspnet_Comment
 ADD CONSTRAINT FK_Comment_User FOREIGN KEY (UserId) REFERENCES aspnet_Users(UserId);
-
-ALTER TABLE aspnet_Comment
-ADD CONSTRAINT FK_Comment_Comment FOREIGN KEY (parentId) REFERENCES aspnet_Comment(Id);
 
 ALTER TABLE aspnet_Comment
 ADD CONSTRAINT FK_Comment_Object FOREIGN KEY (ObjectId) REFERENCES aspnet_Object(Id);
