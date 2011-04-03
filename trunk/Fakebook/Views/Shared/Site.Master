@@ -1,0 +1,92 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Site.Master.cs" Inherits="Fakebook.Views.Shared.Site" %>
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="<%: Url.Content("~/Scripts/jquery-1.4.4.min.js") %>" type="text/javascript"></script>
+    <link href="../../Content/common.css" rel="stylesheet" type="text/css" />
+    <link href="../../Content/main.css" rel="stylesheet" type="text/css" />
+	<!--[if lt IE 8]>
+	<link rel="stylesheet" type="text/css" href="../../css/ie.css" />
+	<![endif]-->
+    <title><asp:ContentPlaceHolder ID="TitleContent" runat="server" /></title>
+</head>
+
+<body>
+	<div id="page">
+		<div id="header-container">
+			<div id="header">
+				<div id="header-content" class="clearfix">
+					<div class="logo"><%: Html.ActionLink("&nbsp;", "Index", "Home")%></div>
+					<div class="global-utils clearfix">
+                        <% if (Request.IsAuthenticated) { %>						
+						<div class="global-search">
+							<form action="" method="post">
+								<input type="text" name="q" />
+							</form>
+						</div>
+						<div class="global-nav">
+							<ul>
+								<li><%: Html.ActionLink("Home", "Index", "Home")%></li>
+								<li><%: Html.ActionLink("Profile", "Index", "Profile")%></li>
+								<li>
+									<a>Account</a>
+									<ul>
+										<li><%: Html.ActionLink("Account Settings", "Settings", "Account")%></li>
+										<li><%: Html.ActionLink("Help", "Index", "Help")%></li>
+										<li><%: Html.ActionLink("Logout", "Logout", "Auth")%></li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+						<% } else { %> 
+						<div class="global-nav">
+							<ul>
+								<li><%: Html.ActionLink("Register", "Register", "Auth")%></li>
+								<li><%: Html.ActionLink("Login", "Login", "Auth")%></li>
+							</ul>
+						</div>
+						<% } %>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="canvas-container">
+			<% if (HasNonEmptyControls(this.SidebarLeftContent) && HasNonEmptyControls(this.SidebarRightContent)) { %>
+            <div id="canvas" class="sidebars clearfix">
+			<% } else if (HasNonEmptyControls(this.SidebarLeftContent)) { %>
+            <div id="canvas" class="sidebar-left clearfix">
+			<% } else if(HasNonEmptyControls(this.SidebarRightContent)) { %>
+            <div id="canvas" class="sidebar-right clearfix">
+			<% } else { %>
+            <div id="canvas">
+			<% } %>
+			
+				<% if(HasNonEmptyControls(this.SidebarLeftContent)) { %>
+				<div id="sidebar-left">
+					<div class="sidebar-content">
+						<asp:ContentPlaceHolder ID="SidebarLeftContent" runat="server" />
+					</div>
+				</div>
+				<% } %>
+				<div id="content">
+					<asp:ContentPlaceHolder ID="MainContent" runat="server" />
+				</div>
+				<% if(HasNonEmptyControls(this.SidebarRightContent)) { %>
+				<div id="sidebar-right">
+					<div class="sidebar-content">					
+						<asp:ContentPlaceHolder ID="SidebarRightContent" runat="server" />
+					</div>
+				</div>
+				<% } %>
+			</div>
+		</div>
+		<div id="footer-container">
+			<div id="footer">
+				<div id="footer-content">
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,6 @@
+legend { margin-left: -7px; } 
+* input { vertical-align: text-bottom; }
+input[type="checkbox"] { vertical-align: baseline; }
+img {-ms-interpolation-mode: bicubic;}
+.clearfix {display: inline-block;}
+* html .clearfix {height:1%;}
