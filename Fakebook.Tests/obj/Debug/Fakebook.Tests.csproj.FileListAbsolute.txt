@@ -1,0 +1,8 @@
+C:\Documents and Settings\jayrulez\Desktop\Fakebook\Fakebook.Tests\bin\Debug\Fakebook.Tests.dll.config
+C:\Documents and Settings\jayrulez\Desktop\Fakebook\Fakebook.Tests\bin\Debug\Fakebook.Tests.dll
+C:\Documents and Settings\jayrulez\Desktop\Fakebook\Fakebook.Tests\bin\Debug\Fakebook.Tests.pdb
+C:\Documents and Settings\jayrulez\Desktop\Fakebook\Fakebook.Tests\bin\Debug\Fakebook.dll
+C:\Documents and Settings\jayrulez\Desktop\Fakebook\Fakebook.Tests\bin\Debug\Fakebook.pdb
+C:\Documents and Settings\jayrulez\Desktop\Fakebook\Fakebook.Tests\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\jayrulez\Desktop\Fakebook\Fakebook.Tests\obj\Debug\Fakebook.Tests.dll
+C:\Documents and Settings\jayrulez\Desktop\Fakebook\Fakebook.Tests\obj\Debug\Fakebook.Tests.pdb

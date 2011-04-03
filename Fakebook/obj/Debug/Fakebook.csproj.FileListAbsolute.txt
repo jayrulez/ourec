@@ -1,0 +1,5 @@
+C:\Documents and Settings\jayrulez\Desktop\Fakebook\Fakebook\bin\Fakebook.dll
+C:\Documents and Settings\jayrulez\Desktop\Fakebook\Fakebook\bin\Fakebook.pdb
+C:\Documents and Settings\jayrulez\Desktop\Fakebook\Fakebook\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\jayrulez\Desktop\Fakebook\Fakebook\obj\Debug\Fakebook.dll
+C:\Documents and Settings\jayrulez\Desktop\Fakebook\Fakebook\obj\Debug\Fakebook.pdb
