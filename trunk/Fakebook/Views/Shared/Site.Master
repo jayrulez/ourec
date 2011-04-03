@@ -52,17 +52,17 @@
 			</div>
 		</div>
 		<div id="canvas-container">
-			<% if (HasNonEmptyControls(this.SidebarLeftContent) && HasNonEmptyControls(this.SidebarRightContent)) { %>
+			<% if (HasContent(this.SidebarLeftContent) && HasContent(this.SidebarRightContent)) { %>
             <div id="canvas" class="sidebars clearfix">
-			<% } else if (HasNonEmptyControls(this.SidebarLeftContent)) { %>
+			<% } else if (HasContent(this.SidebarLeftContent)) { %>
             <div id="canvas" class="sidebar-left clearfix">
-			<% } else if(HasNonEmptyControls(this.SidebarRightContent)) { %>
+			<% } else if(HasContent(this.SidebarRightContent)) { %>
             <div id="canvas" class="sidebar-right clearfix">
 			<% } else { %>
             <div id="canvas">
 			<% } %>
 			
-				<% if(HasNonEmptyControls(this.SidebarLeftContent)) { %>
+				<% if(HasContent(this.SidebarLeftContent)) { %>
 				<div id="sidebar-left">
 					<div class="sidebar-content">
 						<asp:ContentPlaceHolder ID="SidebarLeftContent" runat="server" />
@@ -72,7 +72,7 @@
 				<div id="content">
 					<asp:ContentPlaceHolder ID="MainContent" runat="server" />
 				</div>
-				<% if(HasNonEmptyControls(this.SidebarRightContent)) { %>
+				<% if(HasContent(this.SidebarRightContent)) { %>
 				<div id="sidebar-right">
 					<div class="sidebar-content">					
 						<asp:ContentPlaceHolder ID="SidebarRightContent" runat="server" />
