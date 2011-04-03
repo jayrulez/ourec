@@ -73,6 +73,7 @@
     <Compile Include="Controllers\PhotoController.cs" />
     <Compile Include="Controllers\PostController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
+    <Compile Include="Controllers\RSSController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Lib\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -86,6 +87,34 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Provider\AlbumRepository.cs" />
+    <Compile Include="Models\Provider\ArticleRepository.cs" />
+    <Compile Include="Models\Provider\BaseRepository.cs" />
+    <Compile Include="Models\Provider\CommentRepository.cs" />
+    <Compile Include="Models\Provider\DeveloperRepository.cs" />
+    <Compile Include="Models\Provider\FriendGroupRepository.cs" />
+    <Compile Include="Models\Provider\FriendshipRepository.cs" />
+    <Compile Include="Models\Provider\MembershipRepository.cs" />
+    <Compile Include="Models\Provider\ObjectRepository.cs" />
+    <Compile Include="Models\Provider\PhotoRepository.cs" />
+    <Compile Include="Models\Provider\PostRepository.cs" />
+    <Compile Include="Models\Provider\UserConfirmationRepository.cs" />
+    <Compile Include="Models\Provider\UserPrivacyRepository.cs" />
+    <Compile Include="Models\Provider\UserRepository.cs" />
+    <Compile Include="Models\Repository\IAlbumRepository.cs" />
+    <Compile Include="Models\Repository\IArticleRepository.cs" />
+    <Compile Include="Models\Repository\IBaseRepository.cs" />
+    <Compile Include="Models\Repository\ICommentRepository.cs" />
+    <Compile Include="Models\Repository\IDeveloperRepository.cs" />
+    <Compile Include="Models\Repository\IFriendGroupRepository.cs" />
+    <Compile Include="Models\Repository\IFriendshipRepository.cs" />
+    <Compile Include="Models\Repository\IMembershipRepository.cs" />
+    <Compile Include="Models\Repository\IObjectRepository.cs" />
+    <Compile Include="Models\Repository\IPhotoRepository.cs" />
+    <Compile Include="Models\Repository\IPostRepository.cs" />
+    <Compile Include="Models\Repository\IUserConfirmationRepository.cs" />
+    <Compile Include="Models\Repository\IUserPrivacyRepository.cs" />
+    <Compile Include="Models\Repository\IUserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\Shared\Account.Master.cs">
       <DependentUpon>Account.Master</DependentUpon>
