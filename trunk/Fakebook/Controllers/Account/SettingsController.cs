@@ -14,17 +14,9 @@ namespace Fakebook.Controllers.Account
 {
     public class SettingsController : AuthenticatedController
     {
-        //
-        // GET: /Settings/
-
-        public ActionResult Index()
-        {
-            return View();
-        }
-
         public IFormsAuthenticationService FormsService { get; set; }
         public IMembershipService MembershipService { get; set; }
-
+		
         protected override void Initialize(RequestContext requestContext)
         {
             if (FormsService == null) { FormsService = new FormsAuthenticationService(); }
@@ -33,42 +25,31 @@ namespace Fakebook.Controllers.Account
             base.Initialize(requestContext);
         }
 
-        [Authorize]
-        public ActionResult ChangePassword()
+		[Authorize]
+        public ActionResult Index()
         {
-            ViewBag.PasswordLength = MembershipService.MinPasswordLength;
+			
             return View();
         }
-
-        [Authorize]
+		
+		[Authorize]
         [HttpPost]
-        public ActionResult ChangePassword(ChangePasswordModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                if (MembershipService.ChangePassword(User.Identity.Name, model.OldPassword, model.NewPassword))
-                {
-                    return RedirectToAction("ChangePasswordSuccess");
-                }
-                else
-                {
-                    ModelState.AddModelError("", "The current password is incorrect or the new password is invalid.");
-                }
-            }
-
-            // If we got this far, something failed, redisplay form
-            ViewBag.PasswordLength = MembershipService.MinPasswordLength;
-            return View(model);
-        }
-
-        // **************************************
-        // URL: /Account/ChangePasswordSuccess
-        // **************************************
-
-        public ActionResult ChangePasswordSuccess()
+        public ActionResult Index()
         {
             return View();
         }
-
+		
+		[Authorize]
+        public ActionResult Profile()
+        {
+            return View();
+        }
+		
+		[Authorize]
+        [HttpPost]
+        public ActionResult Profile()
+        {
+            return View();
+        }
     }
 }

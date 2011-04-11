@@ -89,16 +89,16 @@ namespace Fakebook.Models
 
     public class AccountMembershipService : IMembershipService
     {
-        private readonly MembershipProvider _provider;
+        private readonly System.Web.Security.MembershipProvider _provider;
 
         public AccountMembershipService()
             : this(null)
         {
         }
 
-        public AccountMembershipService(MembershipProvider provider)
+        public AccountMembershipService(System.Web.Security.MembershipProvider provider)
         {
-            _provider = provider ?? Membership.Provider;
+            _provider = provider ?? System.Web.Security.Membership.Provider;
         }
 
         public int MinPasswordLength
@@ -220,7 +220,7 @@ namespace Fakebook.Models
     public sealed class ValidatePasswordLengthAttribute : ValidationAttribute, IClientValidatable
     {
         private const string _defaultErrorMessage = "'{0}' must be at least {1} characters long.";
-        private readonly int _minCharacters = Membership.Provider.MinRequiredPasswordLength;
+        private readonly int _minCharacters = System.Web.Security.Membership.Provider.MinRequiredPasswordLength;
 
         public ValidatePasswordLengthAttribute()
             : base(_defaultErrorMessage)

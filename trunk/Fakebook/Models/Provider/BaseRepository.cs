@@ -2,21 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Fakebook.Models.Repository;
 
 namespace Fakebook.Models.Provider
 {
-    public class BaseRepository
+    public class BaseRepository : IBaseRepository
     {
 		protected Entities dbContext;
 		
-		public BaseRepository(Entities context)
+		public BaseRepository()
 		{
-			if(context == null)
-			{
-				throw new ArgumentNullException("context");
-			}
-			
-			this.dbContext = context;
+			this.dbContext = new Entities();
 		}
     }
 }

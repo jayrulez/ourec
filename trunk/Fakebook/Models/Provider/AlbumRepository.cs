@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Fakebook.Models.Repository;
 
 namespace Fakebook.Models.Provider
 {
-    public class AlbumRepository: BaseRepository
+    public class AlbumRepository : BaseRepository, IAlbumRepository
     {
     }
 }
