@@ -135,18 +135,11 @@
     <Content Include="App_Data\social_log.ldf">
       <DependentUpon>social.mdf</DependentUpon>
     </Content>
-    <Content Include="bin\Fakebook.dll" />
-    <Content Include="bin\Fakebook.pdb" />
     <Content Include="Content\common.css" />
     <Content Include="Content\ie.css" />
     <Content Include="Content\main.css" />
     <Content Include="EFCodeFirstReadMe.txt" />
     <Content Include="Global.asax" />
-    <Content Include="obj\Debug\Fakebook.csproj.FileListAbsolute.txt" />
-    <Content Include="obj\Debug\Fakebook.dll" />
-    <Content Include="obj\Debug\Fakebook.pdb" />
-    <Content Include="obj\Debug\TempPE\Models.DataClasses.designer.cs.dll" />
-    <Content Include="obj\Debug\TempPE\Models.Model1.Designer.cs.dll" />
     <Content Include="Scripts\jquery-1.5.2.js" />
     <Content Include="Scripts\jquery-1.5.2.min.js" />
     <Content Include="Views\Auth\Login.aspx" />
@@ -216,8 +209,6 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
-    <None Include="obj\Debug\ResolveAssemblyReference.cache" />
     <Content Include="Views\Shared\Main.Master" />
     <Content Include="Views\Shared\Account.Master" />
     <Content Include="packages.config" />
