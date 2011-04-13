@@ -31,21 +31,20 @@ namespace Fakebook.Controllers.Account
 			
             return View();
         }
-		
-		[Authorize]
+
+        public ActionResult Privacy()
+        {
+
+            return View();
+        }
+
         [HttpPost]
-        public ActionResult Index()
+        public ActionResult Privacy(int x)
         {
+
             return View();
         }
 		
-		[Authorize]
-        public ActionResult Profile()
-        {
-            return View();
-        }
-		
-		[Authorize]
         [HttpPost]
         public ActionResult Profile()
         {

@@ -4,12 +4,15 @@
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <script src="<%: Url.Content("~/Scripts/jquery-1.4.4.min.js") %>" type="text/javascript"></script>
+    <script src="<%: Url.Content("~/Scripts/jquery-ui.min.js") %>" type="text/javascript"></script>
+    <link href="../../Content/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
     <link href="../../Content/common.css" rel="stylesheet" type="text/css" />
     <link href="../../Content/main.css" rel="stylesheet" type="text/css" />
 	<!--[if lt IE 8]>
 	<link rel="stylesheet" type="text/css" href="../../css/ie.css" />
 	<![endif]-->
     <title><asp:ContentPlaceHolder ID="TitleContent" runat="server" /></title>
+    <asp:ContentPlaceHolder ID="HeadScripts" runat="server" />
 </head>
 
 <body>
@@ -17,7 +20,7 @@
 		<div id="header-container">
 			<div id="header">
 				<div id="header-content" class="clearfix">
-					<div class="logo"><%: Html.ActionLink("&nbsp;", "Index", "Home")%></div>
+					<div class="logo"><%: Html.ActionLink("Neuvo", "Index", "Home")%></div>
 					<div class="global-utils clearfix">
                         <% if (Request.IsAuthenticated) { %>						
 						<div class="global-search">
@@ -28,7 +31,7 @@
 						<div class="global-nav">
 							<ul>
 								<li><%: Html.ActionLink("Home", "Index", "Home")%></li>
-								<li><%: Html.ActionLink("Profile", "Index", "Profile")%></li>
+								<li><%: Html.ActionLink("Profile", "Index", "Profile", new { userId = Fakebook.Lib.UserHelper.getLoggedInUserId() }, new object { })%></li>
 								<li>
 									<a>Account</a>
 									<ul>
