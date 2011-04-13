@@ -40,6 +40,11 @@ a:focus
 	outline: 1px dotted;
 }
 
+ul
+{
+	list-style: none;
+}
+
 /*form*/
 
 form {
@@ -241,6 +246,8 @@ form.wf .footer
 
 #header-container #header #header-content .logo a
 {
+	font-weight: bold;
+	font-size: 20px;
 	display:block;
 	background: url('../images/logo.png') center left no-repeat;
 }
@@ -287,7 +294,6 @@ form.wf .footer
 
 #header-container #header #header-content .global-utils ul
 {
-	list-style: none;
 	float: left;
 }
 

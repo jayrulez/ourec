@@ -14,9 +14,9 @@ namespace Fakebook.Lib
         {
             base.Initialize(requestContext);
 
-            if(!HttpContext.User.Identity.IsAuthenticated)
+            if(!requestContext.HttpContext.User.Identity.IsAuthenticated)
             {
-                Redirect(FormsAuthentication.LoginUrl);
+                Response.Redirect(FormsAuthentication.LoginUrl);
             }
         }
     }

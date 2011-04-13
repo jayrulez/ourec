@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<Fakebook.Models.LogOnModel>" %>
 
-<asp:Content ID="loginTitle" ContentPlaceHolderID="TitleContent" runat="server">Log On</asp:Content>
+<asp:Content ID="loginTitle" ContentPlaceHolderID="TitleContent" runat="server">Login</asp:Content>
 
 <asp:Content ID="loginContent" ContentPlaceHolderID="MainContent" runat="server">
 <script src="<%: Url.Content("~/Scripts/jquery.validate.min.js") %>" type="text/javascript"></script>
