@@ -24,9 +24,9 @@
 					<div class="global-utils clearfix">
                         <% if (Request.IsAuthenticated) { %>						
 						<div class="global-search">
-							<form action="" method="post">
+							<!--<form action="" method="post">
 								<input type="text" name="q" />
-							</form>
+							</form>-->
 						</div>
 						<div class="global-nav">
 							<ul>

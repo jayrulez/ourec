@@ -25,6 +25,28 @@ namespace Fakebook.Controllers
             return View();
         }
 
+        public ActionResult Search(string query = "")
+        {
+            if(query.Length > 0)
+            {
+                Entities dbContext = new Entities();
+
+                var users = from u in dbContext.Users
+                            join m in dbContext.Memberships on u.UserId equals m.UserId
+                            where
+                                u.UserName.EndsWith(query) ||
+                                u.UserName.StartsWith(query) ||
+                                u.UserName.Contains(query) ||
+                                (String)m.Email == query
+                            select u;
+                ViewBag.users = users.ToList();
+            }else{
+                ViewBag.users = null;
+            }
+
+            return View();
+        }
+
         public ActionResult Requests()
         {
             var user = UserHelper.getUserById(UserHelper.getLoggedInUserId());

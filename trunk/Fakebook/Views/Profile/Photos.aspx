@@ -16,14 +16,17 @@
             <% foreach (Fakebook.Models.Album album in ViewBag.photoAlbums)
                { %>
                 <% if (album.Photos.Count > 0)
-                   { %>
+                   {
+                       var image = album.Photos.LastOrDefault();
+                       %>
                 <div class="album">
                     <div class="preview">
-                    
+                    <% if(image != null) { %>
+                    <img src="<%: Url.Content("~/Photo/Output?photoId="+image.Id) %>" alt="<%: image.Id %>" />
+                    <% } %>
                     </div>
                     <div class="info">
-                        <div class="name"><%: Html.ActionLink(album.Name, "ViewAlbum", "Photo", new { albumId = album.Id })%></div>
-                        <div class="photo-count"><%: album.Photos.Count%></div>
+                        <div class="name"><%: Html.ActionLink(album.Name + "(" + album.Photos.Count + ")", "ViewAlbum", "Photo", new { albumId = album.Id }, new object { })%></div>
                     </div>
                 </div>
                 <% } %>
@@ -45,7 +48,7 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="SidebarRightContent" runat="server">
 <% if(ViewBag.user.UserId.ToString() == Fakebook.Lib.UserHelper.getLoggedInUserId()) { %>
 <ul>
-	<li><%: Html.ActionLink("Upload Photos", "Index", "Photo")%></li>
+	<li><%: Html.ActionLink("Upload Photos", "Upload", "Photo")%></li>
 </ul>
 <% } %>
 </asp:Content>

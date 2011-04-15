@@ -17,7 +17,7 @@ namespace Fakebook.Lib
                 return true;
             }
 
-            return FriendshipHelper.AreFriends(UserId, SubjectId);
+            return FriendshipHelper.AreFriends(UserId, SubjectId) || UserId == SubjectId;
         }
 
         public static bool CanSeeInfo(Guid UserId, Guid SubjectId)
@@ -29,7 +29,7 @@ namespace Fakebook.Lib
                 return true;
             }
 
-            return FriendshipHelper.AreFriends(UserId, SubjectId);
+            return FriendshipHelper.AreFriends(UserId, SubjectId) || UserId == SubjectId;
         }
 
         public static bool CanSeePhotos(Guid UserId, Guid SubjectId)
@@ -41,7 +41,7 @@ namespace Fakebook.Lib
                 return true;
             }
 
-            return FriendshipHelper.AreFriends(UserId, SubjectId);
+            return FriendshipHelper.AreFriends(UserId, SubjectId) || UserId == SubjectId;
         }
     }
 }
