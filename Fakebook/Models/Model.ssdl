@@ -1,0 +1,492 @@
+<Schema Namespace="Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="aspnet_Album" EntityType="Model.Store.aspnet_Album" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="aspnet_Article" EntityType="Model.Store.aspnet_Article" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="aspnet_Comment" EntityType="Model.Store.aspnet_Comment" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="aspnet_Developer" EntityType="Model.Store.aspnet_Developer" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="aspnet_FriendGroup" EntityType="Model.Store.aspnet_FriendGroup" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="aspnet_FriendGroupFriendship" EntityType="Model.Store.aspnet_FriendGroupFriendship" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="aspnet_Friendship" EntityType="Model.Store.aspnet_Friendship" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="aspnet_Membership" EntityType="Model.Store.aspnet_Membership" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="aspnet_Object" EntityType="Model.Store.aspnet_Object" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="aspnet_Photo" EntityType="Model.Store.aspnet_Photo" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="aspnet_Post" EntityType="Model.Store.aspnet_Post" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="aspnet_UserConfirmation" EntityType="Model.Store.aspnet_UserConfirmation" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="aspnet_UserPrivacy" EntityType="Model.Store.aspnet_UserPrivacy" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="aspnet_Users" EntityType="Model.Store.aspnet_Users" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK__aspnet_Me__UserI__22AA2996" Association="Model.Store.FK__aspnet_Me__UserI__22AA2996">
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+      <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Album_Id" Association="Model.Store.FK_Album_Id">
+      <End Role="aspnet_Object" EntitySet="aspnet_Object" />
+      <End Role="aspnet_Album" EntitySet="aspnet_Album" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Album_User" Association="Model.Store.FK_Album_User">
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+      <End Role="aspnet_Album" EntitySet="aspnet_Album" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Comment_Id" Association="Model.Store.FK_Comment_Id">
+      <End Role="aspnet_Object" EntitySet="aspnet_Object" />
+      <End Role="aspnet_Comment" EntitySet="aspnet_Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Comment_Object" Association="Model.Store.FK_Comment_Object">
+      <End Role="aspnet_Object" EntitySet="aspnet_Object" />
+      <End Role="aspnet_Comment" EntitySet="aspnet_Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Comment_User" Association="Model.Store.FK_Comment_User">
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+      <End Role="aspnet_Comment" EntitySet="aspnet_Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Developer_User" Association="Model.Store.FK_Developer_User">
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+      <End Role="aspnet_Developer" EntitySet="aspnet_Developer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FriendGroup_User" Association="Model.Store.FK_FriendGroup_User">
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+      <End Role="aspnet_FriendGroup" EntitySet="aspnet_FriendGroup" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FriendGroupFriendship_FriendGroup" Association="Model.Store.FK_FriendGroupFriendship_FriendGroup">
+      <End Role="aspnet_FriendGroup" EntitySet="aspnet_FriendGroup" />
+      <End Role="aspnet_FriendGroupFriendship" EntitySet="aspnet_FriendGroupFriendship" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FriendGroupFriendship_Friendship" Association="Model.Store.FK_FriendGroupFriendship_Friendship">
+      <End Role="aspnet_Friendship" EntitySet="aspnet_Friendship" />
+      <End Role="aspnet_FriendGroupFriendship" EntitySet="aspnet_FriendGroupFriendship" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Friendship_Friend" Association="Model.Store.FK_Friendship_Friend">
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+      <End Role="aspnet_Friendship" EntitySet="aspnet_Friendship" />
+    </AssociationSet>
+    <AssociationSet Name="FK_friendship_User" Association="Model.Store.FK_friendship_User">
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+      <End Role="aspnet_Friendship" EntitySet="aspnet_Friendship" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Photo_Album" Association="Model.Store.FK_Photo_Album">
+      <End Role="aspnet_Album" EntitySet="aspnet_Album" />
+      <End Role="aspnet_Photo" EntitySet="aspnet_Photo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Photo_Id" Association="Model.Store.FK_Photo_Id">
+      <End Role="aspnet_Object" EntitySet="aspnet_Object" />
+      <End Role="aspnet_Photo" EntitySet="aspnet_Photo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Photo_User" Association="Model.Store.FK_Photo_User">
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+      <End Role="aspnet_Photo" EntitySet="aspnet_Photo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Post_Id" Association="Model.Store.FK_Post_Id">
+      <End Role="aspnet_Object" EntitySet="aspnet_Object" />
+      <End Role="aspnet_Post" EntitySet="aspnet_Post" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Post_person" Association="Model.Store.FK_Post_person">
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+      <End Role="aspnet_Post" EntitySet="aspnet_Post" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Post_User" Association="Model.Store.FK_Post_User">
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+      <End Role="aspnet_Post" EntitySet="aspnet_Post" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserConfirmation_User" Association="Model.Store.FK_UserConfirmation_User">
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+      <End Role="aspnet_UserConfirmation" EntitySet="aspnet_UserConfirmation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserPrivacy_User" Association="Model.Store.FK_UserPrivacy_User">
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+      <End Role="aspnet_UserPrivacy" EntitySet="aspnet_UserPrivacy" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="aspnet_Album">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Description" Type="text" />
+    <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedAt" Type="datetime" />
+  </EntityType>
+  <EntityType Name="aspnet_Article">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="Content" Type="text" />
+    <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedAt" Type="datetime" />
+  </EntityType>
+  <EntityType Name="aspnet_Comment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ObjectId" Type="int" Nullable="false" />
+    <Property Name="Content" Type="text" />
+    <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedAt" Type="datetime" />
+  </EntityType>
+  <EntityType Name="aspnet_Developer">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ApiKey" Type="varchar" Nullable="false" MaxLength="32" />
+  </EntityType>
+  <EntityType Name="aspnet_FriendGroup">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedAt" Type="datetime" />
+  </EntityType>
+  <EntityType Name="aspnet_FriendGroupFriendship">
+    <Key>
+      <PropertyRef Name="FriendshipId" />
+      <PropertyRef Name="FriendGroupId" />
+    </Key>
+    <Property Name="FriendshipId" Type="int" Nullable="false" />
+    <Property Name="FriendGroupId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="aspnet_Friendship">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="FriendId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Status" Type="int" Nullable="false" />
+    <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedAt" Type="datetime" />
+  </EntityType>
+  <EntityType Name="aspnet_Membership">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="PasswordFormat" Type="int" Nullable="false" />
+    <Property Name="PasswordSalt" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="MobilePIN" Type="nvarchar" MaxLength="16" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="LoweredEmail" Type="nvarchar" MaxLength="256" />
+    <Property Name="PasswordQuestion" Type="nvarchar" MaxLength="256" />
+    <Property Name="PasswordAnswer" Type="nvarchar" MaxLength="128" />
+    <Property Name="IsApproved" Type="bit" Nullable="false" />
+    <Property Name="IsLockedOut" Type="bit" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="LastLoginDate" Type="datetime" Nullable="false" />
+    <Property Name="LastPasswordChangedDate" Type="datetime" Nullable="false" />
+    <Property Name="LastLockoutDate" Type="datetime" Nullable="false" />
+    <Property Name="FailedPasswordAttemptCount" Type="int" Nullable="false" />
+    <Property Name="FailedPasswordAttemptWindowStart" Type="datetime" Nullable="false" />
+    <Property Name="FailedPasswordAnswerAttemptCount" Type="int" Nullable="false" />
+    <Property Name="FailedPasswordAnswerAttemptWindowStart" Type="datetime" Nullable="false" />
+    <Property Name="Comment" Type="ntext" />
+  </EntityType>
+  <EntityType Name="aspnet_Object">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="EntityName" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="aspnet_Photo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="AlbumId" Type="int" />
+    <Property Name="FilePath" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="Caption" Type="varchar" MaxLength="255" />
+    <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedAt" Type="datetime" />
+  </EntityType>
+  <EntityType Name="aspnet_Post">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PersonId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Content" Type="text" />
+    <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedAt" Type="datetime" />
+  </EntityType>
+  <EntityType Name="aspnet_UserConfirmation">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Code" Type="varchar" Nullable="false" MaxLength="32" />
+    <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedAt" Type="datetime" />
+  </EntityType>
+  <EntityType Name="aspnet_UserPrivacy">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="SeeMyInfo" Type="int" Nullable="false" />
+    <Property Name="SeeMyWall" Type="int" Nullable="false" />
+    <Property Name="SeeMyPhotos" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="aspnet_Users">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="LoweredUserName" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="MobileAlias" Type="nvarchar" MaxLength="16" />
+    <Property Name="IsAnonymous" Type="bit" Nullable="false" />
+    <Property Name="LastActivityDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__aspnet_Me__UserI__22AA2996">
+    <End Role="aspnet_Users" Type="Model.Store.aspnet_Users" Multiplicity="1" />
+    <End Role="aspnet_Membership" Type="Model.Store.aspnet_Membership" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="aspnet_Membership">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Album_Id">
+    <End Role="aspnet_Object" Type="Model.Store.aspnet_Object" Multiplicity="1" />
+    <End Role="aspnet_Album" Type="Model.Store.aspnet_Album" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Object">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="aspnet_Album">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Album_User">
+    <End Role="aspnet_Users" Type="Model.Store.aspnet_Users" Multiplicity="1" />
+    <End Role="aspnet_Album" Type="Model.Store.aspnet_Album" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="aspnet_Album">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Comment_Id">
+    <End Role="aspnet_Object" Type="Model.Store.aspnet_Object" Multiplicity="1" />
+    <End Role="aspnet_Comment" Type="Model.Store.aspnet_Comment" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Object">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="aspnet_Comment">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Comment_Object">
+    <End Role="aspnet_Object" Type="Model.Store.aspnet_Object" Multiplicity="1" />
+    <End Role="aspnet_Comment" Type="Model.Store.aspnet_Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Object">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="aspnet_Comment">
+        <PropertyRef Name="ObjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Comment_User">
+    <End Role="aspnet_Users" Type="Model.Store.aspnet_Users" Multiplicity="1" />
+    <End Role="aspnet_Comment" Type="Model.Store.aspnet_Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="aspnet_Comment">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Developer_User">
+    <End Role="aspnet_Users" Type="Model.Store.aspnet_Users" Multiplicity="1" />
+    <End Role="aspnet_Developer" Type="Model.Store.aspnet_Developer" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="aspnet_Developer">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FriendGroup_User">
+    <End Role="aspnet_Users" Type="Model.Store.aspnet_Users" Multiplicity="1" />
+    <End Role="aspnet_FriendGroup" Type="Model.Store.aspnet_FriendGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="aspnet_FriendGroup">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FriendGroupFriendship_FriendGroup">
+    <End Role="aspnet_FriendGroup" Type="Model.Store.aspnet_FriendGroup" Multiplicity="1" />
+    <End Role="aspnet_FriendGroupFriendship" Type="Model.Store.aspnet_FriendGroupFriendship" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_FriendGroup">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="aspnet_FriendGroupFriendship">
+        <PropertyRef Name="FriendGroupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FriendGroupFriendship_Friendship">
+    <End Role="aspnet_Friendship" Type="Model.Store.aspnet_Friendship" Multiplicity="1" />
+    <End Role="aspnet_FriendGroupFriendship" Type="Model.Store.aspnet_FriendGroupFriendship" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Friendship">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="aspnet_FriendGroupFriendship">
+        <PropertyRef Name="FriendshipId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Friendship_Friend">
+    <End Role="aspnet_Users" Type="Model.Store.aspnet_Users" Multiplicity="1" />
+    <End Role="aspnet_Friendship" Type="Model.Store.aspnet_Friendship" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="aspnet_Friendship">
+        <PropertyRef Name="FriendId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_friendship_User">
+    <End Role="aspnet_Users" Type="Model.Store.aspnet_Users" Multiplicity="1" />
+    <End Role="aspnet_Friendship" Type="Model.Store.aspnet_Friendship" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="aspnet_Friendship">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Photo_Album">
+    <End Role="aspnet_Album" Type="Model.Store.aspnet_Album" Multiplicity="0..1" />
+    <End Role="aspnet_Photo" Type="Model.Store.aspnet_Photo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Album">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="aspnet_Photo">
+        <PropertyRef Name="AlbumId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Photo_Id">
+    <End Role="aspnet_Object" Type="Model.Store.aspnet_Object" Multiplicity="1" />
+    <End Role="aspnet_Photo" Type="Model.Store.aspnet_Photo" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Object">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="aspnet_Photo">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Photo_User">
+    <End Role="aspnet_Users" Type="Model.Store.aspnet_Users" Multiplicity="1" />
+    <End Role="aspnet_Photo" Type="Model.Store.aspnet_Photo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="aspnet_Photo">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Post_Id">
+    <End Role="aspnet_Object" Type="Model.Store.aspnet_Object" Multiplicity="1" />
+    <End Role="aspnet_Post" Type="Model.Store.aspnet_Post" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Object">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="aspnet_Post">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Post_person">
+    <End Role="aspnet_Users" Type="Model.Store.aspnet_Users" Multiplicity="1" />
+    <End Role="aspnet_Post" Type="Model.Store.aspnet_Post" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="aspnet_Post">
+        <PropertyRef Name="PersonId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Post_User">
+    <End Role="aspnet_Users" Type="Model.Store.aspnet_Users" Multiplicity="1" />
+    <End Role="aspnet_Post" Type="Model.Store.aspnet_Post" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="aspnet_Post">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserConfirmation_User">
+    <End Role="aspnet_Users" Type="Model.Store.aspnet_Users" Multiplicity="1" />
+    <End Role="aspnet_UserConfirmation" Type="Model.Store.aspnet_UserConfirmation" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="aspnet_UserConfirmation">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserPrivacy_User">
+    <End Role="aspnet_Users" Type="Model.Store.aspnet_Users" Multiplicity="1" />
+    <End Role="aspnet_UserPrivacy" Type="Model.Store.aspnet_UserPrivacy" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="aspnet_UserPrivacy">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

@@ -17,6 +17,7 @@
 <ul>
 	<li><%: Html.ActionLink("Friends", "Index", "Friend")%></li>
 	<li><%: Html.ActionLink("Requests", "Requests", "Friend")%></li>
+	<li><%: Html.ActionLink("Find Friends", "Search", "Friend")%></li>
 </ul>
 </asp:ContentPlaceHolder>
 </asp:Content>

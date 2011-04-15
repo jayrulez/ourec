@@ -74,7 +74,6 @@
     <Compile Include="Controllers\PostController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\RSSController.cs" />
-    <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Lib\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -91,6 +90,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\PhotoModel.cs" />
     <Compile Include="Models\PostModel.cs" />
     <Compile Include="Models\PrivacyModel.cs" />
     <Compile Include="Models\Provider\AlbumRepository.cs" />
@@ -166,6 +166,7 @@
     <Content Include="Views\Default\Index.aspx" />
     <Content Include="Views\Friend\Index.aspx" />
     <Content Include="Views\Friend\Requests.aspx" />
+    <Content Include="Views\Friend\Search.aspx" />
     <Content Include="Views\Help\Index.aspx" />
     <Content Include="Views\Photo\CreateAlbum.aspx" />
     <Content Include="Views\Photo\Index.aspx" />
@@ -177,7 +178,6 @@
     <Content Include="Views\Profile\Index.aspx" />
     <Content Include="Views\Profile\Info.aspx" />
     <Content Include="Views\Profile\Photos.aspx" />
-    <Content Include="Views\Search\Index.aspx" />
     <Content Include="Views\Settings\ChangePassword.aspx" />
     <Content Include="Views\Settings\Index.aspx" />
     <Content Include="Views\Settings\Privacy.aspx" />
@@ -246,6 +246,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Lib\Security\" />
+    <Folder Include="Uploads\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

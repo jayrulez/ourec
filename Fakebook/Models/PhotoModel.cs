@@ -1,0 +1,28 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using System.Globalization;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using System.Web.Security;
+
+namespace Fakebook.Models
+{
+    public class PhotoModel
+    {
+        [Required]
+        [DataType(DataType.Text)]
+        [Display(Name = "Album")]
+        public int AlbumId { get; set; }
+		
+        [DataType(DataType.Text)]
+        [Display(Name = "Photo")]
+        public string FilePath { get; set; }
+		
+        [DataType(DataType.Text)]
+        [Display(Name = "Caption")]
+        public string Caption { get; set; }
+    }
+}
