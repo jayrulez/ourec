@@ -14,10 +14,10 @@ CREATE TABLE aspnet_UserConfirmation
 
 CREATE TABLE aspnet_UserPrivacy
 (
-	UserId UNIQUEIDENTIFIER NOT NULL, 
-	[Key] VARCHAR(50) NOT NULL, 
-	Value TEXT,
-	CONSTRAINT PK_UserPrivacy PRIMARY KEY(UserId, [Key])
+	UserId UNIQUEIDENTIFIER PRIMARY KEY NOT NULL, 
+	SeeMyInfo int not null,
+	SeeMyWall int not null,
+	SeeMyPhotos int not null
 );
 
 CREATE TABLE aspnet_Friendship
@@ -91,7 +91,7 @@ CREATE TABLE aspnet_Post
 
 CREATE TABLE aspnet_Comment
 (
-	Id INT PRIMARY KEY NOT NULL, 
+	Id INT IDENTITY(1,1) PRIMARY KEY NOT NULL, 
 	UserId UNIQUEIDENTIFIER NOT NULL,
 	ObjectId INT NOT NULL, 
 	Content TEXT, 
@@ -161,9 +161,6 @@ ADD CONSTRAINT FK_Comment_User FOREIGN KEY (UserId) REFERENCES aspnet_Users(User
 
 ALTER TABLE aspnet_Comment
 ADD CONSTRAINT FK_Comment_Object FOREIGN KEY (ObjectId) REFERENCES aspnet_Object(Id);
-
-ALTER TABLE aspnet_Comment
-ADD CONSTRAINT FK_Comment_Id FOREIGN KEY (Id) REFERENCES aspnet_Object(Id);
 
 CREATE TRIGGER trig_DeleteAlbumObject
 ON aspnet_Album

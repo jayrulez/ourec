@@ -10,6 +10,9 @@
             <div class="post-publisher-container">
                 <% Html.RenderPartial("~/Views/Post/postPublisher.ascx", new ViewDataDictionary {{"personId",Context.Request.Params["userId"]}, {"returnUrl",Context.Request.Url}}); %>
             </div>
+		    <div class="stream" id="post-stream">
+			    <% Html.RenderPartial("~/Views/Post/postStream.ascx", new ViewDataDictionary { { "posts", ViewBag.posts } }); %>
+		    </div>
 		</div>
 	</div>
 </div>    
@@ -17,9 +20,10 @@
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="SidebarLeftContent" runat="server">
-<div class="user-identity clearfix">
-    <div class="photo">
-    </div>
+<div class="user-identity">
+	<div class="user-display-photo">
+		<img src="<%: Url.Content("~/Images/user_icon_medium.png") %>" alt=""/>
+	</div>
     <div class="links">
         <ul>
             <li><%: Html.ActionLink(Fakebook.Lib.UserHelper.GetDisplayName(), "Index", "Profile", new { userId = Fakebook.Lib.UserHelper.getLoggedInUserId() }, new object { })%></li>

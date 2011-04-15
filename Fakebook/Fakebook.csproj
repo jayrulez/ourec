@@ -66,6 +66,7 @@
   <ItemGroup>
     <Compile Include="Controllers\Account\SettingsController.cs" />
     <Compile Include="Controllers\AuthController.cs" />
+    <Compile Include="Controllers\CommentController.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\FriendController.cs" />
     <Compile Include="Controllers\HelpController.cs" />
@@ -80,14 +81,18 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Lib\AuthenticatedController.cs" />
+    <Compile Include="Lib\FriendshipHelper.cs" />
+    <Compile Include="Lib\PrivacyHelper.cs" />
     <Compile Include="Lib\UserHelper.cs" />
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\AlbumModel.cs" />
     <Compile Include="Models\Model.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Model.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\PostModel.cs" />
+    <Compile Include="Models\PrivacyModel.cs" />
     <Compile Include="Models\Provider\AlbumRepository.cs" />
     <Compile Include="Models\Provider\ArticleRepository.cs" />
     <Compile Include="Models\Provider\BaseRepository.cs" />
@@ -123,8 +128,16 @@
       <DependentUpon>Account.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Views\Shared\FriendLayout.Master.cs">
+      <DependentUpon>FriendLayout.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Views\Shared\Main.Master.cs">
       <DependentUpon>Main.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Shared\PhotoLayout.Master.cs">
+      <DependentUpon>PhotoLayout.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\Shared\ProfileLayout.Master.cs">
@@ -152,9 +165,13 @@
     <Content Include="Views\Auth\Register.aspx" />
     <Content Include="Views\Default\Index.aspx" />
     <Content Include="Views\Friend\Index.aspx" />
+    <Content Include="Views\Friend\Requests.aspx" />
     <Content Include="Views\Help\Index.aspx" />
+    <Content Include="Views\Photo\CreateAlbum.aspx" />
     <Content Include="Views\Photo\Index.aspx" />
+    <Content Include="Views\Post\commentForm.ascx" />
     <Content Include="Views\Post\postPublisher.ascx" />
+    <Content Include="Views\Post\PostStream.ascx" />
     <Content Include="Views\Post\postView.ascx" />
     <Content Include="Views\Profile\Edit.aspx" />
     <Content Include="Views\Profile\Index.aspx" />
@@ -163,7 +180,7 @@
     <Content Include="Views\Search\Index.aspx" />
     <Content Include="Views\Settings\ChangePassword.aspx" />
     <Content Include="Views\Settings\Index.aspx" />
-    <Content Include="Views\Settings\Profile.aspx" />
+    <Content Include="Views\Settings\Privacy.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -216,14 +233,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />
-    <EntityDeploy Include="Models\Model.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model.Designer.cs</LastGenOutput>
-    </EntityDeploy>
     <Content Include="Views\Shared\Main.Master" />
     <Content Include="Views\Shared\Account.Master" />
     <Content Include="packages.config" />
     <Content Include="Views\Shared\ProfileLayout.Master" />
+    <EntityDeploy Include="Models\Model.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Views\Shared\FriendLayout.Master" />
+    <Content Include="Views\Shared\PhotoLayout.Master" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Lib\Security\" />

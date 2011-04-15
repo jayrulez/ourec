@@ -34,21 +34,72 @@ namespace Fakebook.Controllers.Account
 
         public ActionResult Privacy()
         {
+            Entities dbContext = new Entities();
 
-            return View();
+            Guid userGuid = new Guid(UserHelper.getLoggedInUserId());
+
+            UserPrivacy privacy = dbContext.UserPrivacies.SingleOrDefault(p => p.UserId == userGuid);
+
+            if (privacy == null)
+            {
+                privacy = new UserPrivacy();
+                privacy.SeeMyInfo = 0;
+                privacy.SeeMyWall = 0;
+                privacy.SeeMyPhotos = 0;
+            }
+
+            var model = new PrivacyModel { 
+                SeeMyInfo = privacy.SeeMyInfo,
+                SeeMyWall = privacy.SeeMyWall,
+                SeeMyPhotos = privacy.SeeMyPhotos
+            };
+
+            return View(model);
         }
 
         [HttpPost]
-        public ActionResult Privacy(int x)
+        public ActionResult Privacy(PrivacyModel model)
         {
+            ViewBag.message = null;
 
-            return View();
-        }
-		
-        [HttpPost]
-        public ActionResult Profile()
-        {
-            return View();
+            if(ModelState.IsValid)
+            {
+                try
+                {
+
+                    Entities dbContext = new Entities();
+
+                    Guid userGuid = new Guid(UserHelper.getLoggedInUserId());
+
+                    UserPrivacy privacy = dbContext.UserPrivacies.SingleOrDefault(p => p.UserId == userGuid);
+
+                    if (privacy == null)
+                    {
+                        privacy = new UserPrivacy();
+                        privacy.UserId = userGuid;
+
+                        privacy.SeeMyInfo = model.SeeMyInfo;
+                        privacy.SeeMyWall = model.SeeMyWall;
+                        privacy.SeeMyPhotos = model.SeeMyPhotos;
+                        dbContext.UserPrivacies.AddObject(privacy);
+                    }
+                    else
+                    {
+                        privacy.SeeMyInfo = model.SeeMyInfo;
+                        privacy.SeeMyWall = model.SeeMyWall;
+                        privacy.SeeMyPhotos = model.SeeMyPhotos;
+                    }
+
+                    dbContext.SaveChanges();
+
+                    ViewBag.message = "Your privacy settings were saved.";
+                }catch(Exception ex)
+                {
+                    ModelState.AddModelError("", ex.Message);
+                }
+            }
+
+            return View(model);
         }
     }
 }
