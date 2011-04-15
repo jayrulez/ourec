@@ -34,7 +34,7 @@
 <ul>
     <li><%: Html.ActionLink("News Feed", "Index", "Home")%></li>
     <li><%: Html.ActionLink("Friends", "Index", "Friend")%></li>
-    <li><%: Html.ActionLink("Photos", "Index", "Photo")%></li>
+    <li><%: Html.ActionLink("Photos", "Photos", "Profile", new { userId = Fakebook.Lib.UserHelper.getLoggedInUserId()}, new object { })%></li>
 </ul>
 </asp:Content>
 

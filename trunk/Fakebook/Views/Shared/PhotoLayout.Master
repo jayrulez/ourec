@@ -15,7 +15,7 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="SidebarLeftContent" runat="server">
 <asp:ContentPlaceHolder ID="SidebarLeftContent" runat="server" >
 <ul>
-	<li><%: Html.ActionLink("My Photos", "Index", "Photo")%></li>
+	<li><%: Html.ActionLink("My Photos", "Photos", "Profile", new { userId = Fakebook.Lib.UserHelper.getLoggedInUserId() }, new object { })%></li>
 	<li><%: Html.ActionLink("Create Album", "CreateAlbum", "Photo")%></li>
 	<li><%: Html.ActionLink("Upload Photos", "Upload", "Photo")%></li>
 </ul>

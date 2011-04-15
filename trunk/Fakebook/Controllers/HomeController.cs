@@ -19,8 +19,12 @@ namespace Fakebook.Controllers
         public ActionResult Index()
         {
             Entities dbContext = new Entities();
-
-            Guid userGuid = new Guid(UserHelper.getLoggedInUserId());
+            string myId = UserHelper.getLoggedInUserId();
+            if(myId == null)
+            {
+                return RedirectToAction("Index", "Default");
+            }
+            Guid userGuid = new Guid(myId);
 
 
             var friendsOf = from fo in dbContext.Friendships

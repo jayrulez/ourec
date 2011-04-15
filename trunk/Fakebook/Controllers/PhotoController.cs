@@ -17,7 +17,7 @@ namespace Fakebook.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            return RedirectToAction("Photos", "Profile", new { userId = UserHelper.getLoggedInUserId() });
         }
 
         public ActionResult CreateAlbum()
@@ -76,6 +76,7 @@ namespace Fakebook.Controllers
         [HttpPost]
         public ActionResult Upload(string var = "")
         {
+            int viewPhotoId = 0;
             try {
                 foreach (string photoFile in Request.Files)
                 {
@@ -124,16 +125,28 @@ namespace Fakebook.Controllers
                     photo.CreatedAt = DateTime.Now;
                     dbContext.Photos.AddObject(photo);
                     dbContext.SaveChanges();
+                    viewPhotoId = photo.Id;
                 }
-                return RedirectToAction("ViewPhoto", "Photo", new { photoId = 1 });
+                return RedirectToAction("ViewPhoto", "Photo", new { photoId = viewPhotoId });
             }catch(Exception ex)
             {
                 return Content(ex.Message);
             }
         }
 
-        public ActionResult Output(string photoId = "")
+        public ActionResult Output(string photoId = "", string width="", string height="")
         {
+            int xw;
+            int xh;
+
+            int w = 200;
+            int h = 200;
+
+            if(int.TryParse(width, out xw) && int.TryParse(height, out xh))
+            {
+                w = xw;
+                h = xh;
+            }
             try
             {
                 int pid;
@@ -155,7 +168,7 @@ namespace Fakebook.Controllers
 
                 var abort = new Image.GetThumbnailImageAbort(ThumbnailCallback);
 
-                var thumbnail = image.GetThumbnailImage(250,250,abort,IntPtr.Zero);
+                var thumbnail = image.GetThumbnailImage(w,h,abort,IntPtr.Zero);
 
                 using (Graphics g = Graphics.FromImage(thumbnail))
                 {
@@ -187,11 +200,63 @@ namespace Fakebook.Controllers
 
         public ActionResult ViewAlbum(string albumId = "")
         {
+            ViewBag.message = null;
+            ViewBag.album = null;
+
+            try
+            {
+                int aid;
+                if (!int.TryParse(albumId, out aid))
+                {
+                    throw new Exception("The album id specified is not a valid integer.");
+                }
+
+                Entities dbContext = new Entities();
+                var album = dbContext.Albums.SingleOrDefault(a => a.Id == aid);
+
+                if (album == null || (!PrivacyHelper.CanSeePhotos(album.UserId, new Guid(UserHelper.getLoggedInUserId()))))
+                {
+                    throw new Exception("The album you are looking for is not available.");
+                }
+
+                ViewBag.album = album;
+
+            }catch(Exception ex)
+            {
+                ViewBag.message = ex.Message;
+            }
+
             return View();
         }
 
         public ActionResult ViewPhoto(string photoId = "")
         {
+            ViewBag.message = null;
+            ViewBag.album = null;
+
+            try
+            {
+                int aid;
+                if (!int.TryParse(photoId, out aid))
+                {
+                    throw new Exception("The photo id specified is not a valid integer.");
+                }
+
+                Entities dbContext = new Entities();
+                var album = dbContext.Photos.SingleOrDefault(a => a.Id == aid);
+
+                if (album == null || (!PrivacyHelper.CanSeePhotos(album.UserId, new Guid(UserHelper.getLoggedInUserId()))))
+                {
+                    throw new Exception("The photo you are looking for is not available.");
+                }
+
+                ViewBag.photo = album;
+
+            }
+            catch (Exception ex)
+            {
+                ViewBag.message = ex.Message;
+            }
             return View();
         }
 
