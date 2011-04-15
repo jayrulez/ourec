@@ -87,6 +87,7 @@
 		<div id="footer-container">
 			<div id="footer">
 				<div id="footer-content">
+                    <a href="<%: Url.Content("~/News.aspx") %>">Developer news</a>
 				</div>
 			</div>
 		</div>

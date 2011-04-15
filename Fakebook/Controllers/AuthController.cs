@@ -93,6 +93,7 @@ namespace Fakebook.Controllers
 
                 if (createStatus == MembershipCreateStatus.Success)
                 {
+                    EmailHelper.SendEmail(model.Email, "Nuevo Registration", "Welcome to the Nuevo network. You may now find your friends on Nuevo and share with them.");
                     FormsService.SignIn(model.UserName, false /* createPersistentCookie */);
                     return RedirectToAction("Index", "Home");
                 }

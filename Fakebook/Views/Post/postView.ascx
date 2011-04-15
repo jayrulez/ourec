@@ -19,36 +19,7 @@
 							<li><%: post.CreatedAt.ToString() %></li>
 						</ul>
 					</div>
-					<% if(post.OID.Comments.Count > 0) { %>
-					<div class="stream-comments">
-						<div class="stream-comments-content">
-							<% foreach(Fakebook.Models.Comment comment in post.OID.Comments){ %>
-								<div class="stream-comment">
-									<div class="stream-comment-content clearfix">
-										<div class="stream-comment-user-icon">
-											<img src="<%: Url.Content("~/Images/user_icon_mini.png") %>" alt=""/>
-										</div>
-										<div class="stream-comment-entry">
-											<div class="stream-comment-entry-data">
-												<div class="stream-comment-content-text">
-													<span class="user-link"><%: Html.ActionLink(Fakebook.Lib.UserHelper.GetDisplayName(comment.UserId.ToString()), "Index", "Profile", new {userId = comment.UserId.ToString()}, new object{}) %></span> <%: comment.Content %>
-												</div>
-											</div>
-											<div class="stream-comment-entry-extra">
-												<div class="stream-comment-options">
-													<ul>
-														<li><%: comment.CreatedAt.ToString() %></li>
-													</ul>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="separator"></div>
-							<% } %>
-						</div>
-					</div>
-					<% } %>
+                    <% Html.RenderPartial("~/Views/Shared/commentList.ascx", new ViewDataDictionary { { "comments", post.OID.Comments } }); %>
 					<div class="stream-comment-form">
                         <% Html.RenderPartial("~/Views/Post/commentForm.ascx", new ViewDataDictionary { { "OID", post.OID } }); %>
 					</div>

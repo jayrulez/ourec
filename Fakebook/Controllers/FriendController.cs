@@ -136,7 +136,7 @@ namespace Fakebook.Controllers
                 friendship.CreatedAt = DateTime.Now;
                 dbContext.Friendships.AddObject(friendship);
                 dbContext.SaveChanges();
-
+                EmailHelper.SendEmail(friendship.Friend.Membership.Email, "Nuevo Friend Request from "+UserHelper.GetDisplayName(friendship.UserId.ToString()), UserHelper.GetDisplayName(friendship.UserId.ToString()) + "Has sent you a friend request on Nuevo. You may login and curate your friend requests.");
                 return RedirectToAction("Index", "Profile", new { userId = friendId.ToString() });
             }catch(Exception ex)
             {

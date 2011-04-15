@@ -25,11 +25,31 @@ namespace Fakebook.Controllers.Account
             base.Initialize(requestContext);
         }
 
-		[Authorize]
+        [Authorize]
         public ActionResult Index()
         {
-			
+            ViewBag.PasswordLength = MembershipService.MinPasswordLength;
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult Index(ChangePasswordModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                if (MembershipService.ChangePassword(User.Identity.Name, model.OldPassword, model.NewPassword))
+                {
+                    ViewBag.message = "Password was updated successfully.";
+                }
+                else
+                {
+                    ModelState.AddModelError("", "The current password is incorrect or the new password is invalid.");
+                }
+            }
+
+            // If we got this far, something failed, redisplay form
+            ViewBag.PasswordLength = MembershipService.MinPasswordLength;
+            return View(model);
         }
 
         public ActionResult Privacy()

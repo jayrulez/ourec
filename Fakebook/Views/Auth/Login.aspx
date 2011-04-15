@@ -36,6 +36,9 @@
 						<input type="submit" value="Login" />
 					</fieldset>
 				<% } %>
+                <div>
+                    <a href="<%: Url.Content("~/ForgotPassword.aspx") %>">Forgot Password?</a>
+                </div>
 			</div>
 		</div>
 	</div>
