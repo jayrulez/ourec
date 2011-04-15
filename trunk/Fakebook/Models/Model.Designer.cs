@@ -21,9 +21,6 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("Model", "FK_Album_Id", "aspnet_Object", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Fakebook.Models.Object), "aspnet_Album", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Fakebook.Models.Album), true)]
 [assembly: EdmRelationshipAttribute("Model", "FK_Album_User", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Fakebook.Models.User), "aspnet_Album", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Fakebook.Models.Album), true)]
 [assembly: EdmRelationshipAttribute("Model", "FK_Photo_Album", "aspnet_Album", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Fakebook.Models.Album), "aspnet_Photo", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Fakebook.Models.Photo), true)]
-[assembly: EdmRelationshipAttribute("Model", "FK_Comment_Id", "aspnet_Object", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Fakebook.Models.Object), "aspnet_Comment", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Fakebook.Models.Comment), true)]
-[assembly: EdmRelationshipAttribute("Model", "FK_Comment_Object", "aspnet_Object", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Fakebook.Models.Object), "aspnet_Comment", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Fakebook.Models.Comment), true)]
-[assembly: EdmRelationshipAttribute("Model", "FK_Comment_User", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Fakebook.Models.User), "aspnet_Comment", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Fakebook.Models.Comment), true)]
 [assembly: EdmRelationshipAttribute("Model", "FK_Developer_User", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Fakebook.Models.User), "aspnet_Developer", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Fakebook.Models.Developer), true)]
 [assembly: EdmRelationshipAttribute("Model", "FK_FriendGroup_User", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Fakebook.Models.User), "aspnet_FriendGroup", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Fakebook.Models.FriendGroup), true)]
 [assembly: EdmRelationshipAttribute("Model", "FK_Friendship_Friend", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Fakebook.Models.User), "aspnet_Friendship", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Fakebook.Models.Friendship), true)]
@@ -35,8 +32,10 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("Model", "FK_Post_person", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Fakebook.Models.User), "aspnet_Post", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Fakebook.Models.Post), true)]
 [assembly: EdmRelationshipAttribute("Model", "FK_Post_User", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Fakebook.Models.User), "aspnet_Post", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Fakebook.Models.Post), true)]
 [assembly: EdmRelationshipAttribute("Model", "FK_UserConfirmation_User", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Fakebook.Models.User), "aspnet_UserConfirmation", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Fakebook.Models.UserConfirmation), true)]
-[assembly: EdmRelationshipAttribute("Model", "FK_UserPrivacy_User", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Fakebook.Models.User), "aspnet_UserPrivacy", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Fakebook.Models.UserPrivacy), true)]
 [assembly: EdmRelationshipAttribute("Model", "aspnet_FriendGroupFriendship", "aspnet_FriendGroup", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Fakebook.Models.FriendGroup), "aspnet_Friendship", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Fakebook.Models.Friendship))]
+[assembly: EdmRelationshipAttribute("Model", "FK_UserPrivacy_User", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Fakebook.Models.User), "aspnet_UserPrivacy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Fakebook.Models.UserPrivacy), true)]
+[assembly: EdmRelationshipAttribute("Model", "FK_Comment_Object", "Object", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Fakebook.Models.Object), "aspnet_Comment", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Fakebook.Models.Comment), true)]
+[assembly: EdmRelationshipAttribute("Model", "FK_Comment_User", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Fakebook.Models.User), "aspnet_Comment", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Fakebook.Models.Comment), true)]
 
 #endregion
 
@@ -119,22 +118,6 @@ namespace Fakebook.Models
             }
         }
         private ObjectSet<Article> _Articles;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<Comment> Comments
-        {
-            get
-            {
-                if ((_Comments == null))
-                {
-                    _Comments = base.CreateObjectSet<Comment>("Comments");
-                }
-                return _Comments;
-            }
-        }
-        private ObjectSet<Comment> _Comments;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -267,6 +250,22 @@ namespace Fakebook.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        public ObjectSet<User> Users
+        {
+            get
+            {
+                if ((_Users == null))
+                {
+                    _Users = base.CreateObjectSet<User>("Users");
+                }
+                return _Users;
+            }
+        }
+        private ObjectSet<User> _Users;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         public ObjectSet<UserPrivacy> UserPrivacies
         {
             get
@@ -283,18 +282,18 @@ namespace Fakebook.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<User> Users
+        public ObjectSet<Comment> Comments
         {
             get
             {
-                if ((_Users == null))
+                if ((_Comments == null))
                 {
-                    _Users = base.CreateObjectSet<User>("Users");
+                    _Comments = base.CreateObjectSet<Comment>("Comments");
                 }
-                return _Users;
+                return _Comments;
             }
         }
-        private ObjectSet<User> _Users;
+        private ObjectSet<Comment> _Comments;
 
         #endregion
         #region AddTo Methods
@@ -313,14 +312,6 @@ namespace Fakebook.Models
         public void AddToArticles(Article article)
         {
             base.AddObject("Articles", article);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the Comments EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToComments(Comment comment)
-        {
-            base.AddObject("Comments", comment);
         }
     
         /// <summary>
@@ -388,6 +379,14 @@ namespace Fakebook.Models
         }
     
         /// <summary>
+        /// Deprecated Method for adding a new object to the Users EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToUsers(User user)
+        {
+            base.AddObject("Users", user);
+        }
+    
+        /// <summary>
         /// Deprecated Method for adding a new object to the UserPrivacies EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToUserPrivacies(UserPrivacy userPrivacy)
@@ -396,11 +395,11 @@ namespace Fakebook.Models
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the Users EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the Comments EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToUsers(User user)
+        public void AddToComments(Comment comment)
         {
-            base.AddObject("Users", user);
+            base.AddObject("Comments", comment);
         }
 
         #endregion
@@ -1035,54 +1034,16 @@ namespace Fakebook.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Model", "FK_Comment_Id", "aspnet_Object")]
-        public Object OID
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Object>("Model.FK_Comment_Id", "aspnet_Object").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Object>("Model.FK_Comment_Id", "aspnet_Object").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<Object> OIDReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Object>("Model.FK_Comment_Id", "aspnet_Object");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Object>("Model.FK_Comment_Id", "aspnet_Object", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Model", "FK_Comment_Object", "aspnet_Object")]
+        [EdmRelationshipNavigationPropertyAttribute("Model", "FK_Comment_Object", "Object")]
         public Object Object
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Object>("Model.FK_Comment_Object", "aspnet_Object").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Object>("Model.FK_Comment_Object", "Object").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Object>("Model.FK_Comment_Object", "aspnet_Object").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Object>("Model.FK_Comment_Object", "Object").Value = value;
             }
         }
         /// <summary>
@@ -1094,13 +1055,13 @@ namespace Fakebook.Models
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Object>("Model.FK_Comment_Object", "aspnet_Object");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Object>("Model.FK_Comment_Object", "Object");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Object>("Model.FK_Comment_Object", "aspnet_Object", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Object>("Model.FK_Comment_Object", "Object", value);
                 }
             }
         }
@@ -1111,16 +1072,16 @@ namespace Fakebook.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Model", "FK_Comment_User", "aspnet_Users")]
+        [EdmRelationshipNavigationPropertyAttribute("Model", "FK_Comment_User", "User")]
         public User User
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("Model.FK_Comment_User", "aspnet_Users").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("Model.FK_Comment_User", "User").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("Model.FK_Comment_User", "aspnet_Users").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("Model.FK_Comment_User", "User").Value = value;
             }
         }
         /// <summary>
@@ -1132,13 +1093,13 @@ namespace Fakebook.Models
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("Model.FK_Comment_User", "aspnet_Users");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("Model.FK_Comment_User", "User");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<User>("Model.FK_Comment_User", "aspnet_Users", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<User>("Model.FK_Comment_User", "User", value);
                 }
             }
         }
@@ -2501,66 +2462,6 @@ namespace Fakebook.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Model", "FK_Comment_Id", "aspnet_Comment")]
-        public Comment CommentOID
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Comment>("Model.FK_Comment_Id", "aspnet_Comment").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Comment>("Model.FK_Comment_Id", "aspnet_Comment").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<Comment> CommentOIDReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Comment>("Model.FK_Comment_Id", "aspnet_Comment");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Comment>("Model.FK_Comment_Id", "aspnet_Comment", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Model", "FK_Comment_Object", "aspnet_Comment")]
-        public EntityCollection<Comment> Comments
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Comment>("Model.FK_Comment_Object", "aspnet_Comment");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Comment>("Model.FK_Comment_Object", "aspnet_Comment", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("Model", "FK_Photo_Id", "aspnet_Photo")]
         public Photo PhotoOID
         {
@@ -2627,6 +2528,28 @@ namespace Fakebook.Models
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Post>("Model.FK_Post_Id", "aspnet_Post", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Model", "FK_Comment_Object", "aspnet_Comment")]
+        public EntityCollection<Comment> Comments
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Comment>("Model.FK_Comment_Object", "aspnet_Comment");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Comment>("Model.FK_Comment_Object", "aspnet_Comment", value);
                 }
             }
         }
@@ -3491,28 +3414,6 @@ namespace Fakebook.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Model", "FK_Comment_User", "aspnet_Comment")]
-        public EntityCollection<Comment> Comments
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Comment>("Model.FK_Comment_User", "aspnet_Comment");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Comment>("Model.FK_Comment_User", "aspnet_Comment", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("Model", "FK_Developer_User", "aspnet_Developer")]
         public Developer Developer
         {
@@ -3760,17 +3661,55 @@ namespace Fakebook.Models
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("Model", "FK_UserPrivacy_User", "aspnet_UserPrivacy")]
-        public EntityCollection<UserPrivacy> PrivacySettings
+        public UserPrivacy Privacy
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<UserPrivacy>("Model.FK_UserPrivacy_User", "aspnet_UserPrivacy");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<UserPrivacy>("Model.FK_UserPrivacy_User", "aspnet_UserPrivacy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<UserPrivacy>("Model.FK_UserPrivacy_User", "aspnet_UserPrivacy").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<UserPrivacy> PrivacyReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<UserPrivacy>("Model.FK_UserPrivacy_User", "aspnet_UserPrivacy");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<UserPrivacy>("Model.FK_UserPrivacy_User", "aspnet_UserPrivacy", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<UserPrivacy>("Model.FK_UserPrivacy_User", "aspnet_UserPrivacy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Model", "FK_Comment_User", "aspnet_Comment")]
+        public EntityCollection<Comment> Comments
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Comment>("Model.FK_Comment_User", "aspnet_Comment");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Comment>("Model.FK_Comment_User", "aspnet_Comment", value);
                 }
             }
         }
@@ -3964,12 +3903,16 @@ namespace Fakebook.Models
         /// Create a new UserPrivacy object.
         /// </summary>
         /// <param name="userId">Initial value of the UserId property.</param>
-        /// <param name="key">Initial value of the Key property.</param>
-        public static UserPrivacy CreateUserPrivacy(global::System.Guid userId, global::System.String key)
+        /// <param name="seeMyInfo">Initial value of the SeeMyInfo property.</param>
+        /// <param name="seeMyWall">Initial value of the SeeMyWall property.</param>
+        /// <param name="seeMyPhotos">Initial value of the SeeMyPhotos property.</param>
+        public static UserPrivacy CreateUserPrivacy(global::System.Guid userId, global::System.Int32 seeMyInfo, global::System.Int32 seeMyWall, global::System.Int32 seeMyPhotos)
         {
             UserPrivacy userPrivacy = new UserPrivacy();
             userPrivacy.UserId = userId;
-            userPrivacy.Key = key;
+            userPrivacy.SeeMyInfo = seeMyInfo;
+            userPrivacy.SeeMyWall = seeMyWall;
+            userPrivacy.SeeMyPhotos = seeMyPhotos;
             return userPrivacy;
         }
 
@@ -4006,53 +3949,74 @@ namespace Fakebook.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String Key
+        public global::System.Int32 SeeMyInfo
         {
             get
             {
-                return _Key;
+                return _SeeMyInfo;
             }
             set
             {
-                if (_Key != value)
-                {
-                    OnKeyChanging(value);
-                    ReportPropertyChanging("Key");
-                    _Key = StructuralObject.SetValidValue(value, false);
-                    ReportPropertyChanged("Key");
-                    OnKeyChanged();
-                }
+                OnSeeMyInfoChanging(value);
+                ReportPropertyChanging("SeeMyInfo");
+                _SeeMyInfo = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("SeeMyInfo");
+                OnSeeMyInfoChanged();
             }
         }
-        private global::System.String _Key;
-        partial void OnKeyChanging(global::System.String value);
-        partial void OnKeyChanged();
+        private global::System.Int32 _SeeMyInfo;
+        partial void OnSeeMyInfoChanging(global::System.Int32 value);
+        partial void OnSeeMyInfoChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String Value
+        public global::System.Int32 SeeMyWall
         {
             get
             {
-                return _Value;
+                return _SeeMyWall;
             }
             set
             {
-                OnValueChanging(value);
-                ReportPropertyChanging("Value");
-                _Value = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("Value");
-                OnValueChanged();
+                OnSeeMyWallChanging(value);
+                ReportPropertyChanging("SeeMyWall");
+                _SeeMyWall = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("SeeMyWall");
+                OnSeeMyWallChanged();
             }
         }
-        private global::System.String _Value;
-        partial void OnValueChanging(global::System.String value);
-        partial void OnValueChanged();
+        private global::System.Int32 _SeeMyWall;
+        partial void OnSeeMyWallChanging(global::System.Int32 value);
+        partial void OnSeeMyWallChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 SeeMyPhotos
+        {
+            get
+            {
+                return _SeeMyPhotos;
+            }
+            set
+            {
+                OnSeeMyPhotosChanging(value);
+                ReportPropertyChanging("SeeMyPhotos");
+                _SeeMyPhotos = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("SeeMyPhotos");
+                OnSeeMyPhotosChanged();
+            }
+        }
+        private global::System.Int32 _SeeMyPhotos;
+        partial void OnSeeMyPhotosChanging(global::System.Int32 value);
+        partial void OnSeeMyPhotosChanged();
 
         #endregion
     
@@ -4064,16 +4028,16 @@ namespace Fakebook.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Model", "FK_UserPrivacy_User", "aspnet_Users")]
-        public User User
+        [EdmRelationshipNavigationPropertyAttribute("Model", "FK_UserPrivacy_User", "User")]
+        public User Users
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("Model.FK_UserPrivacy_User", "aspnet_Users").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("Model.FK_UserPrivacy_User", "User").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("Model.FK_UserPrivacy_User", "aspnet_Users").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("Model.FK_UserPrivacy_User", "User").Value = value;
             }
         }
         /// <summary>
@@ -4081,17 +4045,17 @@ namespace Fakebook.Models
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<User> UserReference
+        public EntityReference<User> UsersReference
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("Model.FK_UserPrivacy_User", "aspnet_Users");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("Model.FK_UserPrivacy_User", "User");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<User>("Model.FK_UserPrivacy_User", "aspnet_Users", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<User>("Model.FK_UserPrivacy_User", "User", value);
                 }
             }
         }

@@ -10,14 +10,21 @@
 <div class="action">
 	<div class="section">
 		<div class="section-content">
+            <% if (Fakebook.Lib.PrivacyHelper.CanSeeWall(new Guid(Context.Request.Params["userId"]), new Guid(Fakebook.Lib.UserHelper.getLoggedInUserId())))
+               { %>
             <div class="post-publisher-container">
-                <% Html.RenderPartial("~/Views/Post/postPublisher.ascx", new ViewDataDictionary {{"personId",Context.Request.Params["userId"]}, {"returnUrl",Context.Request.Url}}); %>
+                <% Html.RenderPartial("~/Views/Post/postPublisher.ascx", new ViewDataDictionary { { "personId", Context.Request.Params["userId"] }, { "returnUrl", Context.Request.Url } }); %>
             </div>
-            <div class="posts">
-                <% foreach(Fakebook.Models.Post post in ViewBag.wallPosts) { %>
-                    <% Html.RenderPartial("~/Views/Post/postView.ascx", new ViewDataDictionary { { "post", post } }); %>
-                <% } %>
-            </div>
+		    <div class="stream" id="post-stream">
+			    <% Html.RenderPartial("~/Views/Post/postStream.ascx", new ViewDataDictionary { { "posts", ViewBag.wallPosts } }); %>
+		    </div>
+            <% }
+               else
+               { %>
+               <div class="privacy-alert">
+                    You do not have the necessary permissions to view <%: Fakebook.Lib.UserHelper.GetDisplayName(Context.Request.Params["userId"]) %>'s wall.
+               </div>
+            <% } %>
 		</div>
 	</div>
 </div>    

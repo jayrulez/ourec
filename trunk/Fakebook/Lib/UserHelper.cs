@@ -24,7 +24,7 @@ namespace Fakebook.Lib
 
             Guid userGuid = new Guid(userId);
 
-            User user = dbContext.Users.Single(u => u.UserId == userGuid);
+            User user = dbContext.Users.SingleOrDefault(u => u.UserId == userGuid);
 
             return user;
         }
@@ -42,11 +42,11 @@ namespace Fakebook.Lib
             {
                 UserProfile profile = UserProfile.GetUser(user.UserId.ToString());
 
-                if (profile.FirstName != null && profile.LastName != null)
+                if (profile.FirstName.Length > 0 && profile.LastName.Length > 0)
                 {
                     return profile.FirstName + " " + profile.LastName;
                 }
-
+				
                 return user.UserName;
             }
 

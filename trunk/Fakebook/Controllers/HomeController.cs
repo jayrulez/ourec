@@ -4,14 +4,48 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Fakebook.Lib;
+using Fakebook.Models;
+using System.Data.Objects.DataClasses;
+using System.Web.Routing;
 
 namespace Fakebook.Controllers
 {
     public class HomeController : AuthenticatedController
     {
+        protected override void Initialize(RequestContext requestContext)
+        {
+            base.Initialize(requestContext);
+        }
         public ActionResult Index()
         {
-            return View();
+            Entities dbContext = new Entities();
+
+            Guid userGuid = new Guid(UserHelper.getLoggedInUserId());
+
+
+            var friendsOf = from fo in dbContext.Friendships
+                            where fo.FriendId == userGuid && fo.Status == 1
+                            select fo.UserId;
+
+            var friendsWith = from fw in dbContext.Friendships
+                              where fw.UserId == userGuid && fw.Status == 1
+                              select fw.FriendId;
+
+            /*var posts = from p in dbContext.Posts
+                        where p.UserId == userGuid || friendsOf.Contains(p.UserId) || friendsWith.Contains(p.UserId)
+                        select p;*/
+
+            var posts = dbContext.Posts.Where(p => p.UserId == userGuid || p.PersonId == userGuid || friendsOf.Contains(p.UserId) || friendsWith.Contains(p.UserId)).ToList();
+
+            //List ids = new List();
+
+            //var posts = dbContext.Posts.Where(p => p.UserId == userGuid OR p.UserId in ids);
+
+            ViewBag.posts = posts;
+            if (posts != null)
+                return View();
+            else
+                return Content("posts is null");//debugging
         }
     }
 }

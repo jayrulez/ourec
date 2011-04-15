@@ -14,6 +14,26 @@
 
 <asp:Content ID="Content3" ContentPlaceHolderID="SidebarLeftContent" runat="server">
 <asp:ContentPlaceHolder ID="SidebarLeftContent" runat="server" >
+<div class="user-identity">
+	<div class="user-display-photo">
+		<img src="<%: Url.Content("~/Images/user_icon_medium.png") %>" alt=""/>
+	</div>
+</div>
+<% if(Fakebook.Lib.FriendshipHelper.ShowAddFriendLink(new Guid(Context.Request.Params["userId"]), new Guid(Fakebook.Lib.UserHelper.getLoggedInUserId()))) { %>
+<div class="relationship-link">
+<%: Html.ActionLink("Add as Friend", "Add", "Friend", new { userId = Context.Request.Params["userId"] }, new object { })%>
+</div>
+<% } %>
+<% if(Fakebook.Lib.FriendshipHelper.HasFriendRequest(new Guid(Fakebook.Lib.UserHelper.getLoggedInUserId()), new Guid(Context.Request.Params["userId"]))) { %>
+<div class="relationship-link">
+Friendship Request Sent
+</div>
+<% } %>
+<% if(Fakebook.Lib.FriendshipHelper.HasFriendRequest(new Guid(Context.Request.Params["userId"]), new Guid(Fakebook.Lib.UserHelper.getLoggedInUserId()))) { %>
+<div class="relationship-link">
+<%: Html.ActionLink("Respond to Friend Request", "Requests", "Friend", new {}, new {})%>
+</div>
+<% } %>
 <ul>
 	<li><%: Html.ActionLink("Wall", "Index", "Profile", new { userId = Context.Request.Params["userId"] }, new object { })%></li>
 	<li><%: Html.ActionLink("Info", "Info", "Profile", new { userId = Context.Request.Params["userId"] }, new object { })%></li>

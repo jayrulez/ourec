@@ -15,8 +15,8 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="SidebarRightContent" runat="server">
 <asp:ContentPlaceHolder ID="SidebarRightContent" runat="server">
 <ul>
-	<li><%: Html.ActionLink("Account Settings", "Index", "Account")%></li>
-	<li><%: Html.ActionLink("Privacy Settings", "privacy", "Account")%></li>
+	<li><%: Html.ActionLink("Account Settings", "Index", "Settings")%></li>
+	<li><%: Html.ActionLink("Privacy Settings", "Privacy", "Settings")%></li>
 </ul>
 </asp:ContentPlaceHolder>
 </asp:Content>

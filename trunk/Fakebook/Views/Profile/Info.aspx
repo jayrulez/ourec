@@ -10,6 +10,8 @@
 <div class="action">
 	<div class="section">
 		<div class="section-content">
+            <% if (Fakebook.Lib.PrivacyHelper.CanSeeInfo(new Guid(Context.Request.Params["userId"]), new Guid(Fakebook.Lib.UserHelper.getLoggedInUserId())))
+               { %>
                     <div class="user-info">
                         <dl class="clearfix">
                             <dt>Name</dt>
@@ -28,6 +30,11 @@
                             <dd><%: ViewBag.profile.LastEducationalInstitution %></dd>
                         </dl>
                     </div>
+               <% } else { %>
+               <div class="privacy-alert">
+                    You do not have the necessary permissions to view <%: Fakebook.Lib.UserHelper.GetDisplayName(Context.Request.Params["userId"]) %>'s profile information.
+               </div>
+            <% } %>
 		</div>
 	</div>
 </div>    

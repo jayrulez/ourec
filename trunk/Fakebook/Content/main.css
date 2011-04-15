@@ -201,6 +201,58 @@ form.wf .footer
 .top {margin-top: 0 !important;}
 .bottom {margin-bottom: 0 !important;}
 
+/*publisher*/
+#post-publisher{background: #f7f7f7;}
+#post-publisher form{padding: 10px;}
+#post-publisher form fieldset.content-field{}
+#post-publisher form fieldset.content-field textarea {width: 496px;height: 60px; border:2px solid #e8e8e8; padding: 5px; margin: 0;}
+#post-publisher form fieldset.submit-field-and-options{margin-top: 10px;}
+#post-publisher form fieldset.submit-field-and-options .options {float: left;}
+#post-publisher form fieldset.submit-field-and-options .submit-field{float: right;}
+#post-publisher form fieldset.submit-field-and-options .submit-field button{display: inline-block; font-weight: bold; color: #fff; background-color: #8c8c8c; border: 1px solid #333333; border-radius: 2px; padding: 5px 10px; cursor: pointer;}
+
+/*streams*/
+ .stream {}
+ .stream .stream-content {color: #444;}
+ .stream .stream-content .stream-items {}
+ .stream .stream-content .stream-items .stream-item {border-bottom: 1px solid #eeeeee;}
+ .stream .stream-content .stream-items .stream-item .stream-item-content {padding: 10px;}
+ .stream .stream-content .stream-items .stream-item .stream-item-content .stream-user-icon {float: left; margin: 0 10px 0 0;min-width: 50px; min-height: 50px;}
+ .stream .stream-content .stream-items .stream-item .stream-item-content .stream-user-icon a {}
+ .stream .stream-content .stream-items .stream-item .stream-item-content .stream-user-icon a img {margin: 1px;}
+ .stream .stream-content .stream-items .stream-item .stream-item-content .stream-entry {float: left; width: 450px;}
+ .stream .stream-content .stream-items .stream-item .stream-item-content .stream-entry .stream-entry-data {}
+ .stream .stream-content .stream-items .stream-item .stream-item-content .stream-entry .stream-entry-data .stream-user-link {font-weight: bold;}
+ .stream .stream-content .stream-items .stream-item .stream-item-content .stream-entry .stream-entry-data .stream-content-text{}
+ .stream .stream-content .stream-items .stream-item .stream-item-content .stream-entry .stream-entry-extra {}
+ .stream .stream-content .stream-items .stream-item .stream-item-content .stream-entry .stream-entry-extra .stream-entry-options {}
+ .stream .stream-content .stream-items .stream-item .stream-item-content .stream-entry .stream-entry-extra .stream-entry-options ul {}
+ .stream .stream-content .stream-items .stream-item .stream-item-content .stream-entry .stream-entry-extra .stream-entry-options ul li {}
+ .stream .stream-content .stream-items .stream-item .stream-item-content .stream-entry .stream-entry-extra .stream-entry-options ul li a {color:#999;}
+ .stream .stream-content .stream-items .stream-item .stream-item-content .stream-entry .stream-entry-extra .stream-entry-options ul li a:hover {text-decoration: underline;}
+ .stream .stream-content .stream-items .stream-item .stream-item-content .stream-entry .stream-entry-extra .stream-comments {width: 450px; background: #f2f2f2; margin-top: 5px;}
+ .stream .stream-content .stream-items .stream-item .stream-item-content .stream-entry .stream-entry-extra .stream-comments .stream-comments-content {padding: 5px;}
+ .stream .stream-content .stream-items .stream-item .stream-item-content .stream-entry .stream-entry-extra .stream-comments .stream-comments-content .stream-comment {}
+ .stream .stream-content .stream-items .stream-item .stream-item-content .stream-entry .stream-entry-extra .stream-comments .stream-comments-content .stream-comment .stream-comment-content{}
+ .stream .stream-content .stream-items .stream-item .stream-item-content .stream-entry .stream-entry-extra .stream-comments .stream-comments-content .stream-comment .stream-comment-content .stream-comment-user-icon {float: left; width: 30px; height: 30px; border: 2px solid #fff; margin: 0 5px 0 0;}
+ .stream .stream-content .stream-items .stream-item .stream-item-content .stream-entry .stream-entry-extra .stream-comments .stream-comments-content .stream-comment .stream-comment-content .stream-comment-entry {float: right; width: 401px;}
+ .stream .stream-content .stream-items .stream-item .stream-item-content .stream-entry .stream-entry-extra .stream-comments .stream-comments-content .stream-comment .stream-comment-content .stream-comment-entry .stream-comment-entry-data {}
+ .stream .stream-content .stream-items .stream-item .stream-item-content .stream-entry .stream-entry-extra .stream-comments .stream-comments-content .stream-comment .stream-comment-content .stream-comment-entry .stream-comment-entry-data .stream-comment-content-text {}
+ .stream .stream-content .stream-items .stream-item .stream-item-content .stream-entry .stream-entry-extra .stream-comments .stream-comments-content .stream-comment .stream-comment-content .stream-comment-entry .stream-comment-entry-data .stream-comment-content-text span.user-link {font-weight: bold;}
+ .stream .stream-content .stream-items .stream-item .stream-item-content .stream-entry .stream-entry-extra .stream-comments .stream-comments-content .stream-comment .stream-comment-content .stream-comment-entry .stream-comment-entry-extra {}
+ .stream .stream-content .stream-items .stream-item .stream-item-content .stream-entry .stream-entry-extra .stream-comments .stream-comments-content .stream-comment .stream-comment-content .stream-comment-entry .stream-comment-entry-extra .stream-comment-options{color:#999;}
+ .stream .stream-content .stream-items .stream-item .stream-item-content .stream-entry .stream-entry-extra .stream-comments .stream-comments-content .stream-comment .stream-comment-content .stream-comment-entry .stream-comment-entry-extra .stream-comment-options ul {}
+ .stream .stream-content .stream-items .stream-item .stream-item-content .stream-entry .stream-entry-extra .stream-comments .stream-comments-content .stream-comment .stream-comment-content .stream-comment-entry .stream-comment-entry-extra .stream-comment-options ul li {}
+ .stream .stream-content .stream-items .stream-item .stream-item-content .stream-entry .stream-entry-extra .stream-comments .stream-comments-content .stream-comment .stream-comment-content .stream-comment-entry .stream-comment-entry-extra .stream-comment-options ul li a {}
+ .stream .stream-content .stream-items .stream-item .stream-item-content .stream-entry .stream-entry-extra .stream-comment-form {width: 450px; background: #f7f7f7; margin-top: 5px;}
+ .stream .stream-content .stream-items .stream-item .stream-item-content .stream-entry .stream-entry-extra .stream-comment-form .stream-comment-form-content {padding: 5px;}
+ .stream .stream-content .stream-items .stream-item .stream-item-content .stream-entry .stream-entry-extra .stream-comment-form .stream-comment-form-content form {}
+ .stream .stream-content .stream-items .stream-item .stream-item-content .stream-entry .stream-entry-extra .stream-comment-form .stream-comment-form-content form fieldset.content-field{}
+ .stream .stream-content .stream-items .stream-item .stream-item-content .stream-entry .stream-entry-extra .stream-comment-form .stream-comment-form-content form fieldset.content-field textarea{border: 1px solid #e9e9e9; padding: 3px; width: 432px; height: 28px; border-radius: 2px;}
+ .stream .stream-content .stream-items .stream-item .stream-item-content .stream-entry .stream-entry-extra .stream-comment-form .stream-comment-form-content form fieldset.submit-field {margin-top: 5px;}
+ .stream .stream-content .stream-items .stream-item .stream-item-content .stream-entry .stream-entry-extra .stream-comment-form .stream-comment-form-content form fieldset.submit-field  input.submit{float: right; padding:2px 4px;background: #8c8c8c; border-color:#333333; border-radius: 2px;}
+ .stream .stream-content .stream-items .stream-item .stream-item-content .stream-entry .stream-entry-extra .stream-comments .stream-comments-content .separator {margin: 5px 0;}
+
 /*layout*/
 #page
 {
