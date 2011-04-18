@@ -37,7 +37,7 @@ namespace Fakebook.Controllers
             else
             {
                 ViewBag.displayName = UserHelper.GetDisplayName(user.UserId.ToString());
-                ViewBag.wallPosts = user.WallPosts;
+                ViewBag.wallPosts = user.WallPosts.OrderByDescending(p=>p.CreatedAt).ToList();
                 return View();
             }
         }
