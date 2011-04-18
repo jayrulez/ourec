@@ -39,7 +39,7 @@ namespace Fakebook.Controllers
                         where p.UserId == userGuid || friendsOf.Contains(p.UserId) || friendsWith.Contains(p.UserId)
                         select p;*/
 
-            var posts = dbContext.Posts.Where(p => p.UserId == userGuid || p.PersonId == userGuid || friendsOf.Contains(p.UserId) || friendsWith.Contains(p.UserId)).ToList();
+            var posts = dbContext.Posts.Where(p => p.UserId == userGuid || p.PersonId == userGuid || friendsOf.Contains(p.UserId) || friendsWith.Contains(p.UserId)).OrderByDescending(p=>p.CreatedAt).ToList();
 
             //List ids = new List();
 
