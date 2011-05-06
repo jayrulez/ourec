@@ -22,11 +22,14 @@ namespace Fakebook.Lib
 
             Entities dbContext = new Entities();
 
-            Guid userGuid = new Guid(userId);
+            Guid userGuid;
 
-            User user = dbContext.Users.SingleOrDefault(u => u.UserId == userGuid);
+            if (Guid.TryParse(userId, out userGuid))
+            {
+                return dbContext.Users.SingleOrDefault(u => u.UserId == userGuid);
+            }
 
-            return user;
+            return null;
         }
 
         static public string GetDisplayName(string userId = null)
